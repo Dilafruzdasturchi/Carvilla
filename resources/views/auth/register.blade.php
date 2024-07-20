@@ -10,12 +10,13 @@
 <body>
 <div class="login-page">
   <div class="form">
-    <form class="login-form" action="{{route('authenticate')}}" method="POST">
+    <form class="login-form" action="{{route('register_store')}}" method="POST">
         @csrf
+      <input type="text" name="name" placeholder="Name">
       <input type="email" name="email" placeholder="Email"/>
       <input type="password" name="password" placeholder="Password"/>
-      <button type="submit">login</button>
-      <p class="message">Not registered? <a href="{{route('register')}}">Create an account</a></p>
+      <button type="submit">Register</button>
+      <p class="message">Already registered? <a href="{{route('login')}}">Sign In</a></p>
     </form>
   </div>
 </div>
