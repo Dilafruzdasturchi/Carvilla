@@ -92,6 +92,22 @@
 								<li class="scroll"><a href="#new-cars">new cars</a></li>
 								<li class="scroll"><a href="#brand">brands</a></li>
 								<li class="scroll"><a href="#contact">contact</a></li>
+                          @auth
+						  <li>
+								<a href="{{route('login')}}">Login</a>
+					  	 </li>
+						    <li>
+                                <form action="{{route('logout')}}" method="POST">
+								<button type="submit" style="color:white;
+							    text-transform:uppercase;
+								margin-top: 47px ">Log Out</button>
+								</form>
+                                </li>
+								@else
+								<li>
+									<a href="{{route('login')}}">Login</a>
+								 </li>
+						  @endauth
 							</ul><!--/.nav -->
 						</div><!-- /.navbar-collapse -->
 					</div><!--/.container-->
@@ -372,8 +388,10 @@
 			<div class="section-header">
 				<p>checkout <span>the</span> featured cars</p>
 				<h2>featured cars</h2>
-				<a href="{{route('create')}}">+Add car</a>
 			</div><!--/.section-header-->
+			@auth 
+			<a href="{{route('create')}}">+Add car</a>
+			@endauth
 			<div class="featured-cars-content">
 				<div class="row">
 					@foreach($cars as $car)
